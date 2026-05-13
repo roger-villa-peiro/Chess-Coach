@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+/* ============================================
+   OBSIDIAN & GOLD DESIGN SYSTEM
+   Premium Chess Analytics Theme
+   ============================================ */
+
+:root {
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+
+  /* Core Colors - Obsidian */
+  --obsidian-deepest: #050506;
+  --obsidian-deep: #09090b;
+  --obsidian-base: #0f0f12;
+  --obsidian-surface: #18181b;
+  --obsidian-elevated: #27272a;
+  --obsidian-border: #3f3f46;
+
+  /* Accent Colors - Gold */
+  --gold-primary: #f59e0b;
+  --gold-bright: #fbbf24;
+  --gold-dim: #b45309;
+  --gold-glow: rgba(245, 158, 11, 0.15);
+  --gold-border: rgba(245, 158, 11, 0.3);
+
+  /* Text Colors */
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  /* Semantic */
+  --success: #22c55e;
+  --error: #ef4444;
+  --warning: #f59e0b;
+}
+
+body {
+  background-color: var(--obsidian-deep);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* ============================================
+   GLASSMORPHISM UTILITIES
+   ============================================ */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+}
+
+.glass-card-elevated {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-gold {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(180, 83, 9, 0.05));
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--gold-border);
+  border-radius: 1rem;
+}
+
+/* Gold Glow Effect */
+.glow-gold {
+  box-shadow: 0 0 20px var(--gold-glow), 0 0 40px rgba(245, 158, 11, 0.05);
+}
+
+.glow-gold-subtle {
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+/* ============================================
+   FORM INPUTS
+   ============================================ */
+
+.form-input {
+  width: 100%;
+  background-color: var(--obsidian-surface);
+  border: 1px solid var(--obsidian-elevated);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 2px var(--gold-glow);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--obsidian-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--obsidian-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ============================================
+   SELECTION & ANIMATIONS
+   ============================================ */
+
+::selection {
+  background-color: var(--gold-primary);
+  color: var(--obsidian-deepest);
+}
+
+/* Smooth entrance animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.3s ease-out;
+}
+
+/* Number counter animation */
+@keyframes count-up {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-count {
+  animation: count-up 0.5s ease-out;
+}
